@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:th='http://www.thymeleaf.org'>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <title>Result</title>
+    </head>
+    <body>
+        <h3 th:if='${error}' th:text='${error}' style='color: red;'></h3>
+        <div th:unless='${error}' class="container mt-4">
+            <h3 style='color: green;'>Success!</h3>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td th:text='${id}'>
+                        ID
+                    </td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td th:text='${status}'>
+                        Status
+                    </td>
+                </tr>
+                <tr>
+                    <td>Charge ID</td>
+                    <td th:text='${chargeId}'>
+                        Charge ID
+                    </td>
+                </tr>
+                <tr>
+                    <td>Balance Transaction</td>
+                    <td th:text='${balance_transaction}'>
+                        Balance Transaction
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/}" class="btn btn-info">Back to home</a>
+        </div>
+    </body>
+</html>
