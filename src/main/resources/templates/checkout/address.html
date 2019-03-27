@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Save Meal</title>
+</head>
+<body>
+<div class="container mt-4">
+    <h3>Shipping address</h3>
+    <hr>
+    <form action="#" th:action="@{/checkout/confirm}" th:object="${address}" method="POST">
+        <input type="text" th:field="*{fullName}" class="form-control mb-4 col-4" placeholder="FullName">
+        <input type="text" th:field="*{email}" class="form-control mb-4 col-4" placeholder="E-mail">
+        <input type="text" th:field="*{addressLine1}" class="form-control mb-4 col-4" placeholder="Address line 1">
+        <input type="text" th:field="*{addressLine2}" class="form-control mb-4 col-4" placeholder="Address line 2">
+        <input type="text" th:field="*{city}" class="form-control mb-4 col-4" placeholder="City">
+        <input type="text" th:field="*{state}" class="form-control mb-4 col-4" placeholder="State">
+        <input type="text" th:field="*{zip}" class="form-control mb-4 col-4" placeholder="Zip">
+        <button type="submit" class="btn btn-info col-2">Next</button>
+    </form>
+</div>
+</body>
+</html>
+
+
+

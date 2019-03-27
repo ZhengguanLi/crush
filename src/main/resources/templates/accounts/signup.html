@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link type="text/css" th:href="@{/css/accounts.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-md-8 offset-md-2 sign-up-container">
+    <div class="col-md-6 offset-md-3 text-center container">
+        <h1 class="mb-4">Crush</h1>
+        <form th:action="@{/accounts/signup}" th:object="${theCrmUser}" method="POST" autocomplete="off">
+            <div class="form-group mb-4">
+                <input type="text" class="form-control" th:field="*{username}" id="username" placeholder="Username">
+                <small class="error-message" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+                <small class="error-message" th:if="${errorMessageForUsername} != null"
+                       th:text="${errorMessageForUsername}">Error
+                </small>
+            </div>
+            <div class="form-group mb-4">
+                <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Password">
+                <small class="error-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+            </div>
+            <div class="form-group mb-4">
+                <input type="password" class="form-control" th:field="*{matchingPassword}" id="matchingPassword"
+                       placeholder="Confirm password">
+                <small class="error-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+            </div>
+            <div class="form-group mb-4">
+                <input type="email" class="form-control" th:field="*{email}" id="email" aria-describedby="emailHelp"
+                       placeholder="E-mail address">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
+                </small>
+                <small class="error-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                <small class="error-message" th:if="${errorMessageForEmail} != null" th:text="${errorMessageForEmail}">
+                    Error
+                </small>
+            </div>
+            <button type="submit" class="btn btn-secondary col-md-12">Sign up</button>
+            <div class="sign-up-action">
+                Have an account?
+                <a th:href="@{/accounts/login}">Sign In</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

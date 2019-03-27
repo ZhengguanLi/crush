@@ -1,0 +1,84 @@
+#address{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#state{
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    text-align: left;
+    width: 420px;
+    top: 150px;
+    position: sticky!important;
+}
+
+/* navbar */
+.nav-item{
+    margin-left: 20px;
+}
+
+/* menu */
+h3{
+    margin-top: 20px!important;
+    margin-bottom: 5px!important;
+}
+
+.card{
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.card:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.card-body div, .name{
+    margin-left: 10px;
+}
+
+.detail{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.meal-in-cart{
+    margin-bottom: 15px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+/* state */
+#state-header{
+    font-size: 20px;
+}
+
+.subtotal, .state-item{
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.total, .meal-price-in-cart{
+    float:right;
+}
+
+.cart-items{
+    width: 500px;
+}
+
+a{
+    cursor:pointer;
+}
+
+.copyright, .region-us{
+    display: inline-block;
+}
+
+.region-us{
+    float: right;
+}
+
+.links a{
+    color: black;
+}

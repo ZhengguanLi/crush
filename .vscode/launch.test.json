@@ -1,0 +1,30 @@
+{
+  "run": {
+    "default": "",
+    "items": [
+      {
+        "name": "pizza",
+        "projectName": "pizza",
+        "workingDirectory": "c:\\Users\\lanbi\\eclipse-workspace\\pizza",
+        "args": [],
+        "vmargs": [],
+        "env": {},
+        "preLaunchTask": ""
+      }
+    ]
+  },
+  "debug": {
+    "default": "",
+    "items": [
+      {
+        "name": "pizza",
+        "projectName": "pizza",
+        "workingDirectory": "c:\\Users\\lanbi\\eclipse-workspace\\pizza",
+        "args": [],
+        "vmargs": [],
+        "env": {},
+        "preLaunchTask": ""
+      }
+    ]
+  }
+}

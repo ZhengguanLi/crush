@@ -1,0 +1,32 @@
+body{
+	text-align:center;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #EBEEF0!important;
+}
+
+h1{
+	text-align: center; 
+	margin-top: 50px!important;
+}
+
+.sign-up-action, .log-in-action{
+    margin-top: 20px;
+}
+
+.error-message{
+    color:red;
+    text-align:left!important;
+}
+
+.failed{
+	color:red;
+}
+
+a{
+	text-align: center;
+}
+
+.error{
+	color: red;
+	text-align: center;
+}

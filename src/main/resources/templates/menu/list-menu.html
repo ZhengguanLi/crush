@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+              integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+              crossorigin="anonymous">
+        <title>Menu Directory</title>
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h3>Menu Directory</h3>
+            <hr>
+
+            <a th:href="@{/admin/menu/showFormForAdd}" class="btn btn-primary btn-sm mb-3">Add Meal</a>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Meal Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="meal : ${meals}">
+                        <td th:text="${meal.name}"/>
+                        <td th:text="'$' + ${meal.price}"/>
+                        <td th:text="${meal.category}"/>
+                        <td>
+                            <a th:href="@{/admin/menu/showFormForUpdate(mealId=${meal.id})}"
+                               class="btn btn-info btn-sm">Update
+                            </a>
+                            <a th:href="@{/admin/menu/delete(userId=${meal.id})}" class="btn btn-danger btn-sm"
+                               onclick="if(!(confirm('Are you sure you want to delete this meal?'))) return false">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mb-4">
+                <a th:href="@{/admin}">Back to Admin</a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Crush administration</title>
+</head>
+<body>
+<div class="container mt-4">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>AUTHENTICATION AND AUTHORIZATION</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Users</td>
+            <td>
+                <a th:href="@{/admin/users/showFormForAdd}" class="btn btn-primary btn-sm">Add</a>
+                <a th:href="@{/admin/users/list}" class="btn btn-primary btn-sm">Update</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Menu</td>
+            <td>
+                <a th:href="@{/admin/menu/showFormForAdd}" class="btn btn-primary btn-sm">Add</a>
+                <a th:href="@{/admin/menu/list}" class="btn btn-primary btn-sm">Update</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}" class="btn btn-info">Back to home</a>
+</div>
+</body>
+</html>
+
+
+

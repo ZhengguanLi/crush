@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crush Ecommerce</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="/js/home.js"></script>
+</head>
+<body>
+<div class="row justify-content-center">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark col-md-11">
+        <a class="navbar-brand" href="#">Crush Ecommerce</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" id="menu-anchor" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cart
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cart">
+                        <div class="cart-items"></div>
+                        <a class="dropdown-item" href="#">
+                            Subtotal:
+                            <span class="total">
+                                <span class="total-price">$0</span>
+                            </span>
+                        </a>
+                        <a class="dropdown-item" href="#" style="background-color:lightseagreen;">
+                            Check out
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:if="${session.user == null}" th:href="@{/accounts/login}">Log in</a>
+                    <a class="nav-link" th:if="${session.user != null}" th:text="${session.user.username}"
+                       th:href="@{/login}">Log in</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:if="${session.user != null}" href="javascript: document.logoutForm.submit()">Log
+                        out</a>
+                </li>
+                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                    <input hidden type="submit" value="Sign Out"/>
+                </form>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/api}">API</a>
+                </li>
+                <li th:if="${session.hasAdminRole}" class="nav-item active">
+                    <a class="nav-link" th:href="@{/admin}">Manage</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/about}">About</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div class="row justify-content-center" id="menu">
+    <div class="col-md-8">
+        <th:block th:each="menuMealsEntry: ${menuMealsMap}"
+                  th:with="menuName=${menuMealsEntry.key}, meals=${menuMealsEntry.value}">
+            <h3 th:text="${menuName}"></h3>
+            <div class="row">
+                <div class="col-md-4" th:each="meal: ${meals}"
+                     th:with="mealName=${meal.name}, mealPrice=${#numbers.formatDecimal(meal.price, 1, 2)}">
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header meal-name" th:text="${mealName}">name</div>
+                        <div class="card-body">
+                            <h5 class="card-title unit-price" th:text="'$'+  ${mealPrice}">price</h5>
+                            <button type="button" class="btn btn-primary customize" data-toggle="modal"
+                                    th:data-target="'#extrasFor' + ${#strings.replace(mealName, ' ', '')}">
+                                Customize
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+
+    <div class="col-md-3" id="state">
+        <div class="cart-title mt-4 mb-4">
+            <h3 class="text-center mb-4">Delivery or Takeout?</h3>
+            <a href="#" onclick="javascript:;">
+                <i class="fas fa-truck fa-3x"></i>
+            </a>
+            <a href="#">
+                <i class="fas fa-shopping-bag fa-3x" style="float:right;"></i>
+            </a>
+        </div>
+
+        <form th:action="@{/checkout/delivery}" method="POST">
+            <div class="state-menu" style="display:none">
+                <div id="items-in-cart"></div>
+                <div class="subtotal">
+                    Subtotal:
+                    <span class="total">
+                        <span class="total-price">$0</span>
+                    </span>
+                </div>
+                <button type="submit" class="btn btn-success col-md-12">Check out</button>
+            </div>
+        </form>
+
+        <div class="state-empty-hungry text-center">
+            <h5>Hungry?</h5>
+            <p>Add menu items to your cart</p>
+        </div>
+    </div>
+</div>
+
+<!--Modal for Extras -->
+<th:block th:each="mealExtrasEntry: ${mealExtrasMap}"
+          th:with="meal=${mealExtrasEntry.key}, mealName=${meal.name}, mealNameTwo=${#strings.replace(mealName, ' ', '')}, extras=${mealExtrasEntry.value},
+                        mealPrice=${#numbers.formatDecimal(meal.price, 1, 2)}">
+    <div class="modal fade" th:id="'extrasFor' + ${mealNameTwo}" tabindex="-1" role="dialog"
+         th:aria-labelledby="'extrasFor' + ${mealNameTwo} + 'Title'" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" th:id="'extrasFor' + ${mealNameTwo} + 'Title'"
+                        th:text="${mealName}">Meal name
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <th:block th:each="extra: ${extras}"
+                              th:with="extraName=${extra.name}, extraPrice=${#numbers.formatDecimal(extra.price, 1, 2)}">
+                        <input type="radio" name="extra-name" class="extra-radio" th:value="${extraName}"
+                               th:if="${meal.category} == 'Beverages'">
+                        <input type="checkbox" name="extra-name" class="extra-checkbox" th:value="${extraName}"
+                               th:if="${meal.category} != 'Beverages'">
+                        <span class="extra-name" th:text="${extraName}">Extra name</span>
+                        <th:block th:if="${extraPrice} != 0">
+                            - <span class="extra-price" th:text="'$' + ${extraPrice}">Extra price</span>
+                        </th:block>
+                        <br>
+                    </th:block>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary col-md-5 add-to-cart">
+                        <span style="float:left;">Add to cart</span>
+                        <span class="meal-price" th:text="'$' + ${mealPrice}" style="float:right;"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+
+<footer class="row justify-content-center">
+    <div class="col-md-11">
+        <hr>
+        <div class="copyright">
+            <span>Copyright &copy; 2019 Crush</span>
+        </div>
+        <div class="region-us">
+            <div class="links">
+                <a href="/about">About us</a> |
+                <a href="/contact-us">Contact us</a> |
+                <a href="/terms-of-use">Terms of use</a> |
+                <a href="/privacy-policy">Privacy policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

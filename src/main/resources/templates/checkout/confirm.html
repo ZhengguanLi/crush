@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <h3>Confirm</h3>
+    <hr>
+    <form action="#" th:action="@{/charge}" method="POST">
+        <input type='hidden' th:value='${amount}' name='amount'/>
+        <label>Price: $<span th:text='${amount/100}'></span></label>
+        <br>
+        <script
+                src='https://checkout.stripe.com/checkout.js'
+                class='stripe-button'
+                th:attr='data-key=${stripePublicKey},
+                                 data-amount=${amount},
+                                 data-currency=${currency}'
+                data-name='Crush'
+                data-description='checkout'
+                data-image='http://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
+                data-locale='auto'
+                data-zip-code='false'>
+        </script>
+    </form>
+</div>
+</body>
+</html>

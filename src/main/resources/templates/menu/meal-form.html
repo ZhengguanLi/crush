@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+              integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+              crossorigin="anonymous">
+
+        <title>Save Meal</title>
+    </head>
+
+    <body>
+
+        <div class="container mt-4">
+            <h3>Menu Directory</h3>
+            <hr>
+
+            <p class="h4 mb-4">Save Meal</p>
+            <form action="#" th:action="@{/menu/save}" th:object="${meal}" method="POST">
+                <input type="text" th:field="*{name}" class="form-control mb-4 col-4" placeholder="Meal name">
+                <input type="text" th:field="*{price}" class="form-control mb-4 col-4" placeholder="Price">
+                <input type="text" th:field="*{category}" class="form-control mb-4 col-4" placeholder="category">
+                <button type="submit" class="btn btn-info col-2">Save</button>
+            </form>
+
+            <hr>
+            <a th:href="@{/admin/menu/list}">Back to Menu List</a>
+        </div>
+
+    </body>
+</html>
+
+
+

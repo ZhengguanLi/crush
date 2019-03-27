@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - PizzaApplication",
+      "request": "launch",
+      "mainClass": "com.zhengguan.pizza.PizzaApplication",
+      "projectName": "pizza"
+    }
+  ]
+}

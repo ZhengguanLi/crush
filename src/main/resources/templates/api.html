@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>API</title>
+</head>
+
+<body>
+
+<div class="container mt-4">
+    <h3>API</h3>
+    <hr>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>URI</th>
+            <th>Intro</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>
+                <a th:href="@{/api/menu}">/api/menu</a>
+            </td>
+            <td>
+                Get a list of meals on the menu
+            </td>
+        </tr>
+        <tr>
+            <td>
+                /api/menu/{mealID}
+            </td>
+            <td>
+                Get a meal by its ID
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <a th:href="@{/api/extras}">/api/extras</a>
+            </td>
+            <td>
+                Get a list of extras
+            </td>
+        </tr>
+        <tr>
+            <td>
+                /api/extras/{extraID}
+            </td>
+            <td>
+                Get an extra by its ID
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <a th:href="@{/api/users}">/api/users</a>
+            </td>
+            <td>
+                Get a list of users
+            </td>
+        </tr>
+        <tr>
+            <td>
+                /api/users/{userId}
+            </td>
+            <td>
+                Get a user by its ID
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/actuator/health}">/actuator/health</a>
+            </td>
+            <td>
+                Get the health status of the application
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{/actuator/info}">/actuator/info</a>
+            </td>
+            <td>
+                Get the general information
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}" class="btn btn-info">Back to home</a>
+</div>
+
+</body>
+</html>
+
+
+
