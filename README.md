@@ -6,43 +6,43 @@ This is a Spring MVC e-commerce web application which supports user authenticati
 
 ## Preview
 
-![Home page](preview.jpg)
+![Home page](preview.JPG)
 
 User admin page:
 
-![update user](update-user.jpg)
+![update user](update-user.JPG)
 
 Menu admin page:
 
-![update menu](update-menu.jpg)
+![update menu](update-menu.JPG)
 
 Update a meal:
 
-<img src="update-meal.jpg" alt="update meal" width="300px">
+<img src="update-meal.JPG" alt="update meal" width="300px">
 
 Restful API page:
 
-![restful page](restful-page.jpg)
+![restful page](restful-page.JPG)
 
 Restful example:
 
-![restful example](restful-example.jpg)
+![restful example](restful-example.JPG)
 
 Login page:
 
-<img src="login.jpg" alt="login" width="300px">
+<img src="login.JPG" alt="login" width="300px">
 
 Register page:
 
-<img src="register.jpg" alt="sign up" width="300px">
+<img src="register.JPG" alt="sign up" width="300px">
 
 Payment page:
 
-<img src="pay-info.jpg" alt="update meal" width="300px">
+<img src="pay-info.JPG" alt="update meal" width="300px">
 
 Payment success:
 
-![payment success](payment-success.jpg)
+![payment success](payment-success.JPG)
 
 ## Getting started
 
