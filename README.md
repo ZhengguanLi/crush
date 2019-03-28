@@ -55,7 +55,7 @@ Payment success:
   
 ### Usage
 
-- Populate database with `crush.sql`
+- Populate database with `crush.sql` in MySQL
 - Set up datasource of your database in `application.properties` file
     ```text
     # Datasource properties
