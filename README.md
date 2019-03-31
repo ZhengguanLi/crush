@@ -51,7 +51,7 @@ Payment success:
 - Spring Boot
 - Intellij/Eclipse
 - MySQL
-- Stripe account
+- Stripe Account
   
 ### Usage
 
@@ -79,3 +79,8 @@ Payment success:
 - Open `http://localhost:<port number>` on browser
   
 Note: by default in `application.properties` file, the port number is set to 5000
+
+### Deploy the appplication to AWS
+
+Please refer to the article: [The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS)
+](https://howtoprogramwithjava.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/#commentform)
