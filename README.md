@@ -1,6 +1,6 @@
 # Crush E-Commerce
 
-This is a Spring MVC e-commerce web application which supports user authentication/authorization, complete purchasing experience, and CRUD operations via Restful service and admin pages.
+This is a maven-based Spring MVC e-commerce web application which supports user authentication/authorization, complete purchasing experience, and CRUD operations via Restful service and admin pages.
 
 [Live demo](http://crush.us-east-2.elasticbeanstalk.com/)
 
@@ -48,8 +48,10 @@ Payment success:
 
 ### Prerequisites
 
-- Spring Boot
+- JDK
 - Intellij/Eclipse
+- Maven
+- Spring Boot
 - MySQL
 - Stripe Account
   
@@ -80,7 +82,9 @@ Payment success:
   
 Note: by default in `application.properties` file, the port number is set to 5000
 
-### Deploy the appplication to AWS
+### Deploy the application to AWS
 
-Please refer to the article: [The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS)
+Please refer to articles: 
+- [Spring Boot Traditional Deployment](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html)
+- [The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS)
 ](https://howtoprogramwithjava.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/#commentform)
