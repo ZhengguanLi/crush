@@ -82,9 +82,12 @@ Payment success:
   
 Note: by default in `application.properties` file, the port number is set to 5000
 
-### Deploy the application to AWS
+### Deployment
 
-Please refer to articles: 
-- [Spring Boot Traditional Deployment](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html)
-- [The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS)
+- Deploy MySQL database to Amazon RDS
+    - [Creating a MySQL DB Instance and Connecting to a Database on a MySQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html)
+
+- Deploy Spring Boot application to Amazon EC2
+    - [Spring Boot Traditional Deployment](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html)
+    - [The Ultimate Guide to Hosting a Java Web App with Amazon Web Services (AWS)
 ](https://howtoprogramwithjava.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/#commentform)
